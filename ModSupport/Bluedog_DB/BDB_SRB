@@ -1,0 +1,373 @@
+@PART[bluedog_Scout_Antares_Basic,bluedog_Scout_Antares_Inline,bluedog_Minotaur1_SR19,bluedog_Minotaur1_M55A1,bluedog_Pegasus_Orion50XL,bluedog_Pegasus_Orion50SXL,bluedog_LittleJoe2_Algol,bluedog_Taurus_Orion50SXLT,bluedog_Delta_GEM40_Inline,bluedog_Delta_GEM60,bluedog_Delta_GEM60XL,bluedog_Castor4XL,bluedog_AtlasV_AJ60,bluedog_SOLTAN_SRB,bluedog_UA1202,bluedog_UA1203,bluedog_UA1204,bluedog_UA1205,bluedog_UA1206,bluedog_UA1207,bluedog_UA1208,bluedog_SRMU_TwoSeg,bluedog_SRMU_Full,bluedog_SRMU_XL]:FINAL
+{
+
+	%Thrust = #$/MODULE[ModuleEnginesFX]/maxThrust$
+	@Thrust *= 3
+
+  %SF = #$RESOURCE[SolidFuel]/maxAmount$
+  @SF *= 4
+
+	@RESOURCE[SolidFuel]
+  {
+    @amount = #$../SF$
+    @maxAmount = #$../SF$
+  }
+
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = #$../Thrust$
+  }
+}
+
+@PART[bluedog_Castor4]:FINAL
+{
+  !PARTUPGRADE{}
+  %Thrust = #$/MODULE[ModuleEnginesFX]/maxThrust$
+  @Thrust *= 3
+
+  %Vlm = #$/MODULE[ModuleB9PartSwitch]/baseVolume$
+  @Vlm *= 4
+
+  !MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]{}
+  !MODULE[ModuleB9PartInfo]{}
+
+  %RESOURCE[SolidFuel]
+  {
+    %amount = #$../Vlm$
+    %maxAmount = #$../Vlm$
+  }
+
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = #$../Thrust$
+  }
+}
+
+@PART[bluedog_Delta_GEM40]:FINAL
+{
+  
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = 448 // 112
+  }
+
+  @MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]
+  {
+
+    @SUBTYPE[GEM40GL]
+    {
+      @descriptionDetail = <b>Thrust:</b> 448 kN Vac.\n<b>Isp:</b> 245 s ASL / 274 s Vac.
+    }
+
+    @SUBTYPE[GEM40AL]
+    {
+      @descriptionDetail = <b>Thrust:</b> 460 kN Vac.\n<b>Isp:</b> 230 s ASL / 283.4 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 460 // 115
+          
+        }
+      }
+    }
+  }
+  
+
+  @RESOURCE[SolidFuel]
+  {
+    @amount = 1184 // 296
+    @maxAmount = 1184 // 296
+  }
+}
+
+@PART[bluedog_Delta_GEM46]:FINAL
+{
+  
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = 544 // 136
+  }
+
+  @MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]
+  {
+  
+    @SUBTYPE[GEM46GL]
+    {
+      @descriptionDetail = <b>Thrust:</b> 544 kN Vac.\n<b>Isp:</b> 242 s ASL / 274 s Vac.
+    }
+
+    @SUBTYPE[GEM46AL]
+    {
+      @descriptionDetail = <b>Thrust:</b> 460 kN Vac.\n<b>Isp:</b> 235 s ASL / 279.8 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 460 // 115
+          
+        }
+      }
+    }
+  }
+  
+
+  @RESOURCE[SolidFuel]
+  {
+    @amount = 1742 // 431
+    @maxAmount = 1742 // 431
+  }
+}
+
+@PART[bluedog_SRMU_Half]:FINAL
+{
+  
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = 1356 // 339
+  }
+
+  @MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]
+  {
+  
+    @SUBTYPE[SRMU-half]
+    {
+      @descriptionDetail = <b>Thrust:</b> 1356 kN Vac.\n<b>Isp:</b> 259 s ASL / 286 s Vac.
+    }
+
+    @SUBTYPE[SRMU-half-air]
+    {
+      @descriptionDetail = <b>Thrust:</b> 1240 kN Vac.\n<b><b>Isp:</b> 239 s ASL / 296 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 1240 // 310
+          
+        }
+      }
+    }
+  }
+  
+
+  @RESOURCE[SolidFuel]
+  {
+    @amount = 6184 // 1546
+    @maxAmount = 6184 // 1546
+  }
+}
+
+@PART[bluedog_SRMU_Single]:FINAL
+{
+  
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = 2712 // 678
+  }
+
+  @MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]
+  {
+  
+    @SUBTYPE[SRMU-Single]
+    {
+      @descriptionDetail = <b>Thrust:</b> 2712 kN Vac.\n<b>Isp:</b> 259 s ASL / 286 s Vac.
+    }
+
+    @SUBTYPE[SRMU-Single-air]
+    {
+      @descriptionDetail = <b>Thrust:</b> 2440 kN Vac.\n<b><b>Isp:</b> 180 s ASL / 296 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 2440 // 610
+          
+        }
+      }
+    }
+  }
+  
+
+  @RESOURCE[SolidFuel]
+  {
+    @amount = 12372 // 3093
+    @maxAmount = 12372 
+  }
+}
+
+// @PART[bluedog_SRMU_Single]:FINAL
+{
+  !PARTUPGRADE{}
+  %Thrust = #$/MODULE[ModuleEnginesFX]/maxThrust$
+  @Thrust *= 3
+
+
+  !MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]{}
+  !MODULE[ModuleB9PartInfo]{}
+
+  @RESOURCE[SolidFuel]
+  {
+    @amount *= 4
+    @maxAmount *= 4
+  }
+
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = #$../Thrust$
+  }
+}
+
+@PART[bluedog_Scout_Castor_Inline,bluedog_Scout_Algol_Short,bluedog_Scout_Algol_Inline,bluedog_Scout_Algol_Radial]:FINAL
+{
+  !PARTUPGRADE{}
+  %Thrust = #$/MODULE[ModuleEnginesFX]/maxThrust$
+  @Thrust *= 3
+
+  %Vlm = #$/MODULE[ModuleB9PartSwitch[#moduleID[volumeSwitch]]]/baseVolume$
+  @Vlm *= 4
+
+  !MODULE[ModuleB9PartSwitch]:HAS[#moduleID[volumeSwitch]]{}
+  !MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]{}
+  !MODULE[ModuleB9PartInfo]{}
+
+  %RESOURCE[SolidFuel]
+  {
+    %amount = #$../Vlm$
+    %maxAmount = #$../Vlm$
+  }
+
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction *= 0.25
+    @maxThrust = #$../Thrust$
+  }
+}
+
+@PART[bluedog_Peacekeeper_Castor120]:FINAL
+{ 
+  // @thermalMassModifier = 0.5
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction = 114.3
+    @maxThrust = 1756 // 439
+  }
+
+  @MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]
+  {
+
+    @baseVolume = 4920 // 1242
+
+    @SUBTYPE[Castor120]
+    {
+      @descriptionDetail = <b>Thrust:</b> 1756 kN Vac.<b>Isp:</b> 229 s ASL / 280 s Vac.
+    }
+
+    @SUBTYPE[Castor120-AIR]
+    {
+      @descriptionDetail = <b>Thrust:</b> 1448 kN Vac.<b>Isp:</b> 220 s ASL / 289 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 1448 // 362
+          
+        }
+      }
+    }
+
+    @SUBTYPE[Castor120XL]
+    {
+      @volumeAdded = 272 // 68
+      @descriptionDetail = <b>Thrust:</b> 1828 kN Vac.<b>Isp:</b> 229 s ASL / 280 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 1828 // 457
+          
+        }
+      }
+    }
+
+    @SUBTYPE[Castor120XL-AIR]
+    {
+      @volumeAdded = 272 // 68
+      @descriptionDetail = <b>Thrust:</b> 1496 kN Vac.Isp:</b> 220 s ASL / 289 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 1496 // 374
+          
+        }
+      }
+    }
+
+    @SUBTYPE[SR-118]
+    {
+      @volumeAdded = -372 // -93
+      @descriptionDetail = <b>Thrust:</b> 2260 kN Vac.Isp:</b> 229 s ASL / 282 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 2260 // 565
+          
+        }
+      }
+    }
+  }
+}
+
+@PART[bluedog_Castor2]:FINAL
+{ 
+  // @thermalMassModifier = 0.5
+  @MODULE[ModuleEngines*]
+  {
+    @heatProduction = 114.3
+    @maxThrust = 224 // 56
+  }
+
+  @MODULE[ModuleB9PartSwitch]:HAS[#moduleID[engineSwitch]]
+  {
+
+    @baseVolume = 336 // 84
+
+    @SUBTYPE[CastorI]
+    {
+      @descriptionDetail = <b>Thrust:</b> 224 kN Vac.<b>Isp:</b> 232 s ASL / 247 s Vac.
+    }
+
+    @SUBTYPE[CastorII]
+    {
+      @volumeAdded = 40 // 10
+      @descriptionDetail = <b>Thrust:</b> 233 kN Vac.<b>Isp:</b> 240 s ASL / 271 s Vac.
+      @MODULE
+      {
+        
+        @DATA
+        {
+          @maxThrust = 233 // 58.3
+          
+        }
+      }
+    }
+  }
+}
+
+// , bluedog_Saturn_AJ260_Radial  , bluedog_Saturn_AJ260_Inline , 
